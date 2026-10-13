@@ -11,8 +11,8 @@ XAMPP環境において、ローカル開発用のカスタムドメインおよ
 | ドメイン名 | ドキュメントルート |
 | :--- | :--- |
 | `localhost` | `C:/xampp/htdocs` |
-| `wakobussan.jp.test` | `C:/xampp/htdocs/wakobussan.jp` |
-| `infotech.wakobussan.jp.test` | `C:/xampp/htdocs/infotech.wakobussan.jp` |
+| `xxx.jp.test` | `C:/xampp/htdocs/xxx.jp` |
+| `yyy.jp.test` | `C:/xampp/htdocs/yyy.jp` |
 
 ---
 
@@ -29,14 +29,14 @@ Windowsの `hosts` ファイルを編集し、テスト用ドメインをロー�
    ```
 3. ファイルの末尾に以下の設定を追加して保存します:
    ```plaintext
-   127.0.0.1 wakobussan.jp.test
-   127.0.0.1 infotech.wakobussan.jp.test
+   127.0.0.1 xxx.jp.test
+   127.0.0.1 yyy.jp.test
    ```
 
 **動作確認:**  
 コマンドプロンプトを開き、以下のコマンドを実行して `127.0.0.1` から応答が返ることを確認します。
 ```bash
-ping wakobussan.jp.test
+ping xxx.jp.test
 ```
 
 ---
@@ -46,10 +46,10 @@ ping wakobussan.jp.test
 各ドメイン用の公開フォルダとテスト用ファイルを準備します。
 
 1. XAMPPの `htdocs` 配下に以下のフォルダを作成します:
-   - `C:\xampp\htdocs\wakobussan.jp`
-   - `C:\xampp\htdocs\infotech.wakobussan.jp`
+   - `C:\xampp\htdocs\xxx.jp`
+   - `C:\xampp\htdocs\yyy.jp`
 2. 各フォルダ内に、動作確認用の `index.html`（または `index.php`）を配置します。
-   - 例: `C:\xampp\htdocs\wakobussan.jp\index.html` に「wakobussan.jp テストページ」と記載
+   - 例: `C:\xampp\htdocs\xxx.jp\index.html` に「wakobussan.jp テストページ」と記載
 
 **動作確認:**  
 エクスプローラーで各フォルダとファイルが正しく存在していることを確認します。
@@ -72,13 +72,13 @@ Apacheで各ドメインへのアクセスを振り分けるためのバーチ�
    </VirtualHost>
 
    <VirtualHost *:80>
-       DocumentRoot "C:/xampp/htdocs/wakobussan.jp"
-       ServerName wakobussan.jp.test
+       DocumentRoot "C:/xampp/htdocs/xxx.jp"
+       ServerName xxx.jp.test
    </VirtualHost>
 
    <VirtualHost *:80>
-       DocumentRoot "C:/xampp/htdocs/infotech.wakobussan.jp"
-       ServerName infotech.wakobussan.jp.test
+       DocumentRoot "C:/xampp/htdocs/yyy.jp"
+       ServerName yyy.jp.test
    </VirtualHost>
    ```
 
@@ -94,8 +94,8 @@ Apacheで各ドメインへのアクセスを振り分けるためのバーチ�
 1. **XAMPP Control Panel** を開きます。
 2. Apacheの **「Stop」** ボタンを押し、停止後に **「Start」** ボタンを押して再起動します。
 3. ブラウザを開き、各URLにアクセスします:
-   - [http://wakobussan.jp.test](http://wakobussan.jp.test)
-   - [http://infotech.wakobussan.jp.test](http://infotech.wakobussan.jp.test)
+   - [http://xxx.jp.test](http://xxx.jp.test)
+   - [http://yyy.jp.test](http://yyy.jp.test)
 
 **動作確認:**  
 それぞれのURLで、手順2で配置した対応するフォルダ内のファイルが表示されれば設定完了です。
